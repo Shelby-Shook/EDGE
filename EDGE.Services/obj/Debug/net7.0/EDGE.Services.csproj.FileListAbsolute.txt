@@ -1,0 +1,17 @@
+C:\Users\shelb\EDGE.Services\bin\Debug\net7.0\EDGE.Services.deps.json
+C:\Users\shelb\EDGE.Services\bin\Debug\net7.0\EDGE.Services.dll
+C:\Users\shelb\EDGE.Services\bin\Debug\net7.0\EDGE.Services.pdb
+C:\Users\shelb\EDGE.Services\bin\Debug\net7.0\EDGE.Data.dll
+C:\Users\shelb\EDGE.Services\bin\Debug\net7.0\EDGE.Models.dll
+C:\Users\shelb\EDGE.Services\bin\Debug\net7.0\EDGE.Models.pdb
+C:\Users\shelb\EDGE.Services\bin\Debug\net7.0\EDGE.Data.pdb
+C:\Users\shelb\EDGE.Services\obj\Debug\net7.0\EDGE.Services.csproj.AssemblyReference.cache
+C:\Users\shelb\EDGE.Services\obj\Debug\net7.0\EDGE.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\shelb\EDGE.Services\obj\Debug\net7.0\EDGE.Services.AssemblyInfoInputs.cache
+C:\Users\shelb\EDGE.Services\obj\Debug\net7.0\EDGE.Services.AssemblyInfo.cs
+C:\Users\shelb\EDGE.Services\obj\Debug\net7.0\EDGE.Services.csproj.CoreCompileInputs.cache
+C:\Users\shelb\EDGE.Services\obj\Debug\net7.0\EDGE.Services.csproj.CopyComplete
+C:\Users\shelb\EDGE.Services\obj\Debug\net7.0\EDGE.Services.dll
+C:\Users\shelb\EDGE.Services\obj\Debug\net7.0\refint\EDGE.Services.dll
+C:\Users\shelb\EDGE.Services\obj\Debug\net7.0\EDGE.Services.pdb
+C:\Users\shelb\EDGE.Services\obj\Debug\net7.0\ref\EDGE.Services.dll

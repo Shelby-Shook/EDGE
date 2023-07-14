@@ -1,0 +1,12 @@
+C:\Users\shelb\EDGE.Models\bin\Debug\net7.0\EDGE.Models.deps.json
+C:\Users\shelb\EDGE.Models\bin\Debug\net7.0\EDGE.Models.dll
+C:\Users\shelb\EDGE.Models\bin\Debug\net7.0\EDGE.Models.pdb
+C:\Users\shelb\EDGE.Models\obj\Debug\net7.0\EDGE.Models.csproj.AssemblyReference.cache
+C:\Users\shelb\EDGE.Models\obj\Debug\net7.0\EDGE.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\shelb\EDGE.Models\obj\Debug\net7.0\EDGE.Models.AssemblyInfoInputs.cache
+C:\Users\shelb\EDGE.Models\obj\Debug\net7.0\EDGE.Models.AssemblyInfo.cs
+C:\Users\shelb\EDGE.Models\obj\Debug\net7.0\EDGE.Models.csproj.CoreCompileInputs.cache
+C:\Users\shelb\EDGE.Models\obj\Debug\net7.0\EDGE.Models.dll
+C:\Users\shelb\EDGE.Models\obj\Debug\net7.0\refint\EDGE.Models.dll
+C:\Users\shelb\EDGE.Models\obj\Debug\net7.0\EDGE.Models.pdb
+C:\Users\shelb\EDGE.Models\obj\Debug\net7.0\ref\EDGE.Models.dll
