@@ -1,5 +1,6 @@
 using EDGE.Data;
 using EDGE.Data.Entities;
+using EDGE.Services.User;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
 
@@ -18,6 +19,7 @@ builder.Services.AddDbContext<AppDbContext> (options =>
 // Enables using Identity Managers (Users, SignIn, Password)
 builder.Services.AddDefaultIdentity<UserEntity>()
     .AddEntityFrameworkStores<AppDbContext>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Services.ConfigureApplicationCookie(Options =>
 {

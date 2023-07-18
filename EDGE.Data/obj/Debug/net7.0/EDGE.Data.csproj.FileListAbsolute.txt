@@ -10,3 +10,17 @@ C:\Users\shelb\EDGE.Data\obj\Debug\net7.0\EDGE.Data.dll
 C:\Users\shelb\EDGE.Data\obj\Debug\net7.0\refint\EDGE.Data.dll
 C:\Users\shelb\EDGE.Data\obj\Debug\net7.0\EDGE.Data.pdb
 C:\Users\shelb\EDGE.Data\obj\Debug\net7.0\ref\EDGE.Data.dll
+C:\Users\shelb\EDGE\EDGE.Data\bin\Debug\net7.0\EDGE.Data.deps.json
+C:\Users\shelb\EDGE\EDGE.Data\bin\Debug\net7.0\EDGE.Data.runtimeconfig.json
+C:\Users\shelb\EDGE\EDGE.Data\bin\Debug\net7.0\EDGE.Data.dll
+C:\Users\shelb\EDGE\EDGE.Data\bin\Debug\net7.0\EDGE.Data.pdb
+C:\Users\shelb\EDGE\EDGE.Data\obj\Debug\net7.0\EDGE.Data.csproj.AssemblyReference.cache
+C:\Users\shelb\EDGE\EDGE.Data\obj\Debug\net7.0\EDGE.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\shelb\EDGE\EDGE.Data\obj\Debug\net7.0\EDGE.Data.AssemblyInfoInputs.cache
+C:\Users\shelb\EDGE\EDGE.Data\obj\Debug\net7.0\EDGE.Data.AssemblyInfo.cs
+C:\Users\shelb\EDGE\EDGE.Data\obj\Debug\net7.0\EDGE.Data.csproj.CoreCompileInputs.cache
+C:\Users\shelb\EDGE\EDGE.Data\obj\Debug\net7.0\EDGE.Data.dll
+C:\Users\shelb\EDGE\EDGE.Data\obj\Debug\net7.0\refint\EDGE.Data.dll
+C:\Users\shelb\EDGE\EDGE.Data\obj\Debug\net7.0\EDGE.Data.pdb
+C:\Users\shelb\EDGE\EDGE.Data\obj\Debug\net7.0\EDGE.Data.genruntimeconfig.cache
+C:\Users\shelb\EDGE\EDGE.Data\obj\Debug\net7.0\ref\EDGE.Data.dll
