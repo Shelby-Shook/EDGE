@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace EDGE.Models;
+namespace EDGE.Models.User;
 
 public class UserLogin
 {

@@ -8,5 +8,5 @@ public interface IUserService
 
     Task LogoutAsync();
 
-    Task<bool> SignInAsync();
+    Task<bool> SignInAsync(UserLogin model);
 }
