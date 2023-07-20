@@ -57,7 +57,7 @@ public class UserService : IUserService
         );
     }
 
-    public Task<bool> SignInAsync()
+    public Task<bool> SignInAsync(UserLogin model)
     {
         throw new NotImplementedException();
     }

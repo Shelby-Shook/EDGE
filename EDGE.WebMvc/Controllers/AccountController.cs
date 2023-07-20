@@ -39,12 +39,12 @@ public class AccountController : Controller
             return View(model);
         }
 
-        Users loginModel = new()
+        UserLogin loginModel = new()
         {
-            Name = model.Username,
-            Email = model.Password
+            Username = model.Username,
+            Password = model.Password
         };
-        await _userService.SignInAsync();
+        await _userService.SignInAsync(loginModel);
         return RedirectToAction("Index", "Home");
     }
 
@@ -58,10 +58,10 @@ public class AccountController : Controller
     [HttpPost, ValidateAntiForgeryToken]
     public async Task<IActionResult> Login(UserLogin model)
     {
-        var loginResult = await _userService.SignInAsync();
+        var loginResult = await _userService.SignInAsync(model);
         if (loginResult == false)
         {
-             return View(model);
+            return View(model);
         }
 
         return RedirectToAction("Index", "Home");
