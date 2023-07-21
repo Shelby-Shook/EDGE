@@ -12,7 +12,8 @@ namespace EDGE.Data
         [Key]
         public int Id {get; set;} 
         public DateTime Date { get; set; }
-        public string? Notes {get; set;}
+        public string? Notes { get; set; }
+        public string Name { get; set; } = string.Empty!;
 
         [Required]
         [ForeignKey("Users")]

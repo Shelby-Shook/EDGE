@@ -1,0 +1,9 @@
+
+@model List<WorkoutLogDetail>
+    <div class="text-center"> 
+        @foreach (var log in Model)
+        {
+            <p>@log.Notes</p>
+        }
+    </div>
+

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EDGE.Services.Workouts
 {
-    public class WorkoutLogService
+    public class WorkoutLogService : IWorkoutLogService
     {
         private readonly EdgeDbContext _db;
         public WorkoutLogService(EdgeDbContext db) 
@@ -18,16 +18,18 @@ namespace EDGE.Services.Workouts
         public async Task<bool> CreateWorkoutLog(WorkoutLogCreate model)
         {
             var entity = new WorkoutLog
-            {
-                Notes = model.Notes
+            {   UserId = 0,
+                Name = model.Name,
+                Notes = model.Notes,
+                Date = DateTime.Today
             };
-                _db.WorkoutLogs.Add(entity);
+                _db.WorkoutLog.Add(entity);
             var numberChanges = await _db.SaveChangesAsync();
             return numberChanges == 1;
         }
         public async Task<IEnumerable<WorkoutLogDetail>>GetAllWorkoutLogs()
         {
-            var entities = await _db.WorkoutLogs.Select(w=> new WorkoutLogDetail
+            var entities = await _db.WorkoutLog.Select(w=> new WorkoutLogDetail
             {
                 Notes = w.Notes, 
                 Date = w.Date
@@ -38,7 +40,7 @@ namespace EDGE.Services.Workouts
 
         public async Task<WorkoutLogDetail>GetWorkoutLogByIDAsync(int id)
         {
-            WorkoutLog? entity = await _db.WorkoutLogs.FirstOrDefaultAsync(w=> w.Id==id);
+            WorkoutLog? entity = await _db.WorkoutLog.FirstOrDefaultAsync(w=> w.Id==id);
             WorkoutLogDetail model = new WorkoutLogDetail
             {
                 Notes = entity.Notes, 
@@ -49,7 +51,7 @@ namespace EDGE.Services.Workouts
 
         public async Task<IEnumerable<WorkoutLogDetail>>GetWorkoutsByDateAsync(DateTime date)
         {
-            var entity = await _db.WorkoutLogs.Where(w=> w.Date==date).Select(w=>
+            var entity = await _db.WorkoutLog.Where(w=> w.Date==date).Select(w=>
             new WorkoutLogDetail
             {
                 Notes = w.Notes,

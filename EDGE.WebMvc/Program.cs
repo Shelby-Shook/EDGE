@@ -1,6 +1,7 @@
 using EDGE.Data;
 using EDGE.Data.Entities;
 using EDGE.Services.User;
+using EDGE.Services.Workouts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
 
@@ -9,17 +10,18 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 // DbContext configuration, adds the DbContext for dependency injection
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<AppDbContext> (options =>
+builder.Services.AddDbContext<EdgeDbContext> (options =>
 {
     options.UseSqlServer(connectionString);
 });
 
 // builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IWorkoutLogService, WorkoutLogService>();
 
 // Enables using Identity Managers (Users, SignIn, Password)
 builder.Services.AddDefaultIdentity<UserEntity>()
-    .AddEntityFrameworkStores<AppDbContext>();
-builder.Services.AddScoped<IUserService, UserService>();
+    .AddEntityFrameworkStores<EdgeDbContext>();
 
 builder.Services.ConfigureApplicationCookie(Options =>
 {

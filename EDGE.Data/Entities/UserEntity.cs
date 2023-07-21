@@ -4,6 +4,11 @@ namespace EDGE.Data.Entities;
 
 public class UserEntity : IdentityUser<int>
 {
-    public string? Name {get; set; }
-    public DateTime DateCreated { get; set; }
+    public string Username {get; set; } = null!;
+
+    public override string UserName => Username;
+
+    public string Password { get; set; } = null!;
+
+    public override string? PasswordHash => Password;
 }

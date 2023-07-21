@@ -8,12 +8,12 @@ namespace EDGE.Services.User;
 
 public class UserService : IUserService
 {
-    private readonly AppDbContext _ctx;
+    private readonly EdgeDbContext _ctx;
     private readonly UserManager<UserEntity> _userManager;
     private readonly SignInManager<UserEntity> _signInManager;
 
     public UserService(
-        AppDbContext ctx,
+        EdgeDbContext ctx,
         UserManager<UserEntity> userManager,
         SignInManager<UserEntity> signInManager)
     {
@@ -24,23 +24,21 @@ public class UserService : IUserService
 
     public async Task<bool> RegisterUserAsync(UserRegister model)
     {
-        if (await UserExistAsync(model.Email, model.Username))
-            return false;
+          
+       // if (await UserExistAsync(model.Email, model.Username))
+           // return false;
         UserEntity user = new()
         {
-            UserName = model.Username,
+            Username = model.Username,
             Email = model.Email
         };
-
-        var User = await _userManager.FindByNameAsync(model.Username);
-        if (user is null)
-            return false;
-        var isValidPassword = await _userManager.CheckPasswordAsync(user, model.Password);
-        if (isValidPassword == false)
-            return false;
-
-        await _signInManager.SignInAsync(user, true);
-        return true;
+       
+        var passwordHasher = new PasswordHasher<UserEntity>();
+        user.Password = passwordHasher.HashPassword(user, model.Password);
+        var createResults = await _userManager.CreateAsync(user);
+         Console.WriteLine(user.Username);
+        foreach(var e in createResults.Errors) Console.WriteLine(e.Description);
+        return createResults.Succeeded;
     }
 
     public async Task LogoutAsync() => await _signInManager.SignOutAsync();

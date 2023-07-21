@@ -31,7 +31,7 @@ public class AccountController : Controller
         {
             return View(model);
         }
-
+      
         //Try to register the user, reject if failed
         var registerResult = await _userService.RegisterUserAsync(model);
         if (registerResult == false)
