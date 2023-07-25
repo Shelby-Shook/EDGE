@@ -34,9 +34,9 @@ public class UserService : IUserService
         };
        
         var passwordHasher = new PasswordHasher<UserEntity>();
-        user.Password = passwordHasher.HashPassword(user, model.Password);
+        user.PasswordHash = passwordHasher.HashPassword(user, model.Password);
         var createResults = await _userManager.CreateAsync(user);
-         Console.WriteLine(user.Username);
+        // Console.WriteLine(user.Username);
         foreach(var e in createResults.Errors) Console.WriteLine(e.Description);
         return createResults.Succeeded;
     }
@@ -55,8 +55,21 @@ public class UserService : IUserService
         );
     }
 
-    public Task<bool> SignInAsync(UserLogin model)
+    public async Task<bool> SignInAsync(UserLogin model) 
     {
-        throw new NotImplementedException();
+        var userEntity = await (_userManager.FindByNameAsync(model.Username));
+        //See if the user is registered/exists
+        if (userEntity == null)
+        {
+            return false;
+        }
+        //If so, Check the password
+        var passwordHasher = new PasswordHasher<UserEntity>();                       //comparing this ->   to that
+        var verifyPasswordResult = passwordHasher.VerifyHashedPassword(userEntity, userEntity.PasswordHash, model.Password);
+        if (verifyPasswordResult == PasswordVerificationResult.Failed)
+            return false;      
+        //Password is correct, log them in 
+        await _signInManager.SignInAsync(userEntity, true);
+            return true;
     }
 }

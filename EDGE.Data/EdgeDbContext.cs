@@ -19,7 +19,7 @@ public class EdgeDbContext : IdentityDbContext<UserEntity, RoleEntity, int, User
     {
         base.OnModelCreating(modelBuilder);
 
-        modelBuilder.Entity<UserEntity>().ToTable("Users") .Ignore(u => u.UserName) .Ignore(n =>n.PasswordHash); // Ignore duplicate column
+        modelBuilder.Entity<UserEntity>().ToTable("Users") .Ignore(u => u.UserName); // Ignore duplicate column
             modelBuilder.Entity<RoleEntity>().ToTable("Roles");
             modelBuilder.Entity<UserRoleEntity>().ToTable("UserRoles");
             modelBuilder.Entity<UserClaimEntity>().ToTable("UserClaims");

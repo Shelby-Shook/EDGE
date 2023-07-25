@@ -8,7 +8,4 @@ public class UserEntity : IdentityUser<int>
 
     public override string UserName => Username;
 
-    public string Password { get; set; } = null!;
-
-    public override string? PasswordHash => Password;
 }

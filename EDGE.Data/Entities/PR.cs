@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EDGE.Data
+namespace EDGE.Data.Entities
 {
     public class PR
     {
@@ -21,5 +21,8 @@ namespace EDGE.Data
         [Required]
         [ForeignKey("Users")]
         public int UserId { get; set; }
+
+        public virtual UserEntity User {get; set;}
+
     }
 }
