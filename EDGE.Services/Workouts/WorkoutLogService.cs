@@ -26,7 +26,7 @@ namespace EDGE.Services.Workouts
         {
             var entity = new WorkoutLog
             {
-                UserId = int.Parse(_userManager.GetUserId(_signInManager.Context.User)??"0"), 
+                UserId = int.Parse(_userManager.GetUserId(_signInManager.Context.User) ?? "0"),
                 Name = model.Name,
                 Notes = model.Notes,
                 Date = DateTime.Today
@@ -70,18 +70,26 @@ namespace EDGE.Services.Workouts
 
         public async Task<bool> UpdateWorkoutsAsync(WorkoutLogUpdate model)
         {
+            var workoutLog = await _db.WorkoutLog.FindAsync(model);
+            var userId = int.Parse(_userManager.GetUserId(_signInManager.Context.User) ?? "0");
+            if (workoutLog?.UserId != userId)
+             _db.WorkoutLog.Update(workoutLog);
+            return await _db.SaveChangesAsync() == 1;
             throw new NotImplementedException(); //Get workout log by Id
             // Entity.property = model.property
             // SaveChangesAsync
             // return changes == 1
         }
 
-         public async Task<bool> DeleteWorkoutsAsync(int Id)
+        public async Task<bool> DeleteWorkoutsAsync(int workoutId)
         {
-            throw new NotImplementedException(); //Get workout log by Id
-            // db.table.Remove(entity)
-            // SaveChangesAsync
-            // return changes == 1
+            var workoutLog = await _db.WorkoutLog.FindAsync(workoutId);
+            var userId = int.Parse(_userManager.GetUserId(_signInManager.Context.User) ?? "0");
+            if (workoutLog?.UserId != userId)
+                return false;
+            _db.WorkoutLog.Remove(workoutLog);
+            return await _db.SaveChangesAsync() == 1;
+
         }
 
 

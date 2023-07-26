@@ -16,7 +16,7 @@ namespace EDGE.Data.Entities
         public string Name { get; set; } = string.Empty!;
 
         [Required]
-        [ForeignKey("Users")]
+        [ForeignKey("User")]
         public int UserId { get; set; }
 
         public virtual UserEntity User {get; set;}

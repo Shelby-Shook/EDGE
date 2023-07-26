@@ -13,5 +13,6 @@ namespace EDGE.Services.Workouts
 
         Task<IEnumerable<WorkoutLogDetail>>GetAllWorkoutLogs();
         Task<bool> CreateWorkoutLog(WorkoutLogCreate model);
+        Task<bool> DeleteWorkoutsAsync(int Id);
     }
 }
