@@ -39,6 +39,7 @@ namespace EDGE.Services.Workouts
         {
             var entities = await _db.WorkoutLog.Select(w => new WorkoutLogDetail
             {
+                Id = w.Id,
                 Notes = w.Notes,
                 Date = w.Date
             }).ToListAsync();
@@ -68,17 +69,18 @@ namespace EDGE.Services.Workouts
             return entity;
         }
 
-        public async Task<bool> UpdateWorkoutsAsync(WorkoutLogUpdate model)
+        public async Task<bool> UpdateWorkoutsAsync(WorkoutLogUpdate workout)
         {
-            var workoutLog = await _db.WorkoutLog.FindAsync(model);
+            var workoutLog = await _db.WorkoutLog.FindAsync(workout.Id);
             var userId = int.Parse(_userManager.GetUserId(_signInManager.Context.User) ?? "0");
             if (workoutLog?.UserId != userId)
-             _db.WorkoutLog.Update(workoutLog);
+                return false;
+
+            workoutLog.Notes = workout.Content;
+            workoutLog.Name = workout.Title;
+            _db.WorkoutLog.Update(workoutLog);
             return await _db.SaveChangesAsync() == 1;
-            throw new NotImplementedException(); //Get workout log by Id
-            // Entity.property = model.property
-            // SaveChangesAsync
-            // return changes == 1
+
         }
 
         public async Task<bool> DeleteWorkoutsAsync(int workoutId)
@@ -91,7 +93,5 @@ namespace EDGE.Services.Workouts
             return await _db.SaveChangesAsync() == 1;
 
         }
-
-
     }
 }

@@ -20,3 +20,8 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* styles.css */
+.custom-background {
+  background-color: #ff5722; /* Example color: orange */
+}

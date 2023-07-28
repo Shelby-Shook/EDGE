@@ -2,7 +2,50 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: lightgray;
+           
+        }
+        .hero-section {
+            padding: 120px 0;
+            text-align: center;
+            background-image: url('path/to/your/background-image.jpg');
+            background-size: cover;
+            background-position: center;
+            color: black;
+        }
+        .hero-section h1 {
+            font-size: 48px;
+            font-weight: bold;
+        }
+        .hero-section p {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .btn-primary {
+            background-color: #ff5722;
+            border-color: #ff5722;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-section">
+        <h1>Welcome</h1>
+        <p class="lead">Discover a World of Fitness</p>
+        <a href="#" class="btn btn-lg btn-primary">Get Started</a>
+    </div>
+
+    <div class="container">
+        <!-- Add more content here as needed -->
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

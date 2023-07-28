@@ -10,7 +10,6 @@ using Microsoft.Extensions.Logging;
 
 namespace EDGE.WebMvc.Controllers
 {
-    [Route("[controller]")]
     public class WorkoutController : Controller
     {
         private readonly ILogger<WorkoutController> _logger;
@@ -21,34 +20,63 @@ namespace EDGE.WebMvc.Controllers
             _logger = logger;
             _service = service;
         }
-        [HttpGet]
+
         public async Task<IActionResult> Index()
         {
             var model = await _service.GetAllWorkoutLogs();
             return View(model);
         }
-        [HttpGet("Create")]
+
+        public async Task<IActionResult> Detail()
+        {
+            var model = await _service.GetAllWorkoutLogs();
+            return View(model);
+        }
         public IActionResult Create()
         {
             return View();
         }
-        [HttpPost("Create")]
+        [HttpPost]
         public async Task<IActionResult> Create(WorkoutLogCreate model)
         {
-            var res = await _service.CreateWorkoutLog(model);
-            if (res)
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof (Index));
-            } else
-            {
-                return NotFound();
+                var isMessageCreated = await _service.CreateWorkoutLog(model);
+                if (isMessageCreated)
+                {
+                    return RedirectToAction("Index", "Workout");
+                }
+                else
+                {
+                    return NotFound();
+                }
             }
+            return View();
         }
+    
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View("Error!");
-        }
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public IActionResult Error()
+    {
+        return View("Error!");
     }
+    public async Task<IActionResult> Delete(int id)
+    {
+        WorkoutLogDetail? workoutLog = await _service.GetWorkoutLogByIDAsync(id);
+        if (workoutLog is null)
+            return RedirectToAction(nameof(Index));
+        return View(workoutLog);
+    }
+
+    [HttpPost]
+    [ActionName(nameof(Delete))]
+    public async Task<IActionResult> ConfirmDelete(int id)
+    {
+        await _service.DeleteWorkoutsAsync(id);
+        return RedirectToAction(nameof(Index));
+    }
+
+}
+
+
 }

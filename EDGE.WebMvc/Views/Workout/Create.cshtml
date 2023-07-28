@@ -1,5 +1,68 @@
 @model WorkoutLogCreate
-<form asp-controller="Workout" asp-action="Create" method="Post">
-    Name:  <Input asp-for="Name"> </Input>
-    Notes:  <Input asp-for="Notes"> </Input>
-    <button type="Submit">Submit</button> </form>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: rgba(0, 0, 0, 0.151);
+        margin: 0;
+        padding: 0;
+    }
+
+    .form-container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .form-group button {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #ff5722;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .form-group button:hover {
+        background-color: #ff7f49;
+    }
+</style>
+
+<div class="form-container">
+    <form asp-controller="Workout" asp-action="Create" method="post">
+        <div class="form-group">
+            <label for="Name">Name:</label>
+            <input asp-for="Name" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="Notes">Notes:</label>
+            <input asp-for="Notes" class="form-control" />
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+

@@ -9,5 +9,6 @@ namespace EDGE.Models.WorkoutLog
     {
         public DateTime Date { get; set; }
         public string? Notes {get; set;}
+        public int Id { get; set; }
     }
 }
